@@ -31,13 +31,13 @@ public class SignUpController {
         boolean legalPassword = SignUpValidator.checkPassword(password);
         boolean legalEmail = SignUpValidator.checkEmail(email);
 
-        if (legalUsername && legalPassword && legalEmail){
+        if (legalUsername & legalPassword & legalEmail){
             SignUpDAO.signUp(username, password, email);
-        } else if (legalUsername && legalPassword){
+        } else if (legalUsername & legalPassword & !legalEmail){
             System.out.println("invalid email");
-        } else if (legalUsername && legalEmail){
+        } else if (legalUsername & legalEmail & !legalPassword){
             System.out.println("invalid password");
-        } else if (legalPassword && legalEmail){
+        } else if (legalPassword & legalEmail & !legalUsername){
             System.out.println("Invalid username");
         }
 

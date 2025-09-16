@@ -25,6 +25,8 @@ public class LoginController {
         if (userID > 0){
             SceneController SceneController = new SceneController();
             SceneController.switchToDashboard(event);
+        } else {
+            System.out.println("Not a user.");
         }
     }
     public void signUp(ActionEvent event){

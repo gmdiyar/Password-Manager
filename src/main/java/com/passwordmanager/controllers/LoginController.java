@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import static com.passwordmanager.dao.LoginDAO.loggedIn;
+import static com.passwordmanager.dao.LoginDAO.userID;
 
 public class LoginController {
 
@@ -22,7 +22,7 @@ public class LoginController {
         String password = passwordForm.getText();
 
         LoginDAO.queryUsers(username, password);
-        if (loggedIn){
+        if (userID > 0){
             SceneController SceneController = new SceneController();
             SceneController.switchToDashboard(event);
         }

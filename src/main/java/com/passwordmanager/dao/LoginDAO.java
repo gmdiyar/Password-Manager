@@ -7,7 +7,7 @@ public class LoginDAO {
     static String jdbcURL = "jdbc:sqlite:/C:\\Users\\Welcome\\Desktop\\repos\\Java\\PasswordManager\\src\\main\\java\\resources\\database\\USERS.db";
     static Connection connection;
 
-    public static boolean loggedIn = false;
+    public static int userID;
 
     public static void queryUsers(String inputUsername, String inputPassword){
         {
@@ -18,12 +18,13 @@ public class LoginDAO {
                 ResultSet result = statement.executeQuery(selectAll);
 
                 while (result.next()){
+                    int UserID = result.getInt("user_id");
                     String username = result.getString("username");
                     String password_hash = result.getString("password_hash");
                     String email = result.getString("email");
 
                     if (username.equals(inputUsername) && password_hash.equals(inputPassword)){
-                        loggedIn = true;
+                        userID = UserID;
                     }
 
                 }

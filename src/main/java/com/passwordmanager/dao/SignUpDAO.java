@@ -15,7 +15,6 @@ public class SignUpDAO {
                 String insertRecord = "INSERT INTO users (username, password_hash, email) VALUES (?,?,?)";
 
                 PreparedStatement preparedStatement = connection.prepareStatement(insertRecord);
-                preparedStatement.setString(1, inputUsername);
 
                 preparedStatement.setString(1, inputUsername);
                 preparedStatement.setString(2,inputPassword);
